@@ -3,6 +3,7 @@
 let choices = ['Rock', 'Paper', 'Scissors']
 
 function getComputerSelection(choices){
+    // gets the computer selection
     let randomNumber;
     randomNumber = Math.floor(Math.random() * 3);
 
@@ -11,6 +12,9 @@ function getComputerSelection(choices){
 
 
 function playRound(playerSelection, computerSelection){
+    // returns 0 if the round is a tie
+    // returns 1 if the user wins
+    // returns 2 if the computer wins
     playerSelection = playerSelection.toLowerCase()
     computerSelection = computerSelection.toLowerCase()
     if (playerSelection == computerSelection){
@@ -23,14 +27,16 @@ function playRound(playerSelection, computerSelection){
 }
 
 function game(){
+    // plays a game of 3 rounds
+    // game ends when the score reaches 3
     let playerScore = 0;
     let computerScore = 0;
     let gameScore = 0;
     
     
-    while (playerScore < 5 && computerScore < 5){
+    while (playerScore < 3 && computerScore < 3){
         let playerInput = prompt("Choose your weapon!").toLowerCase();
-        let computerSelection = getComputerSelection(choices)
+        let computerSelection = getComputerSelection(choices).toLowerCase()
         if (playerInput !== 'rock' && playerInput !== 'paper' && playerInput !== 'scissors'){
             throw new Error("Invalid choice");
         }
@@ -42,16 +48,14 @@ function game(){
         } else {
             continue;
         }
+        console.log("Player choice: ",playerInput)
+        console.log("Computer choice: ", computerSelection)
+        console.log("Player score: ", playerScore)
+        console.log("Computer score: ", computerScore)
     }
 
     return playerScore > computerScore ? 1 : 0
 
 }
 
-// const playerSelection = 'Paper'
-// const computerSelection = getComputerSelection(choices);
-// console.log(computerSelection)
-// console.log(playerSelection)
-// console.log(playRound(playerSelection, computerSelection));
-
-console.log(game())
+game();
