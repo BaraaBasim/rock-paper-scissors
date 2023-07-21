@@ -26,7 +26,7 @@ function playRound(playerSelection, computerSelection){
     } else return 2;
 }
 
-function game(){
+function playGame(){
     // plays a game of 3 rounds
     // game ends when the score reaches 3
     let playerScore = 0;
@@ -45,8 +45,6 @@ function game(){
             playerScore++;
         } else if (gameScore == 2){
             computerScore++;
-        } else {
-            continue;
         }
         console.log("Player choice: ",playerInput)
         console.log("Computer choice: ", computerSelection)
@@ -58,4 +56,4 @@ function game(){
 
 }
 
-game();
+playGame();
