@@ -4,6 +4,7 @@ let choices = ['Rock', 'Paper', 'Scissors']
 
 function getComputerSelection(choices){
     // gets the computer selection
+    // this is the main branch
     let randomNumber;
     randomNumber = Math.floor(Math.random() * 3);
 
