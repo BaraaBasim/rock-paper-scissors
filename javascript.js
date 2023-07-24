@@ -55,5 +55,24 @@ function playGame(){
     return playerScore > computerScore ? 1 : 0
 
 }
+const playButton = document.getElementById("play-button");
+
+
+playButton.addEventListener("click", function(e){
+    if (e.target.localName === "button") {
+        e.target.style.transition = "opacity 0.5s ease";
+        e.target.style.opacity = 0;
+        const header = document.querySelector('.header');
+        header.style.transition = "opacity 0.5s ease";
+        header.style.opacity = 0;
+        setTimeout(function() {
+            e.parentNode.removeChild(removeTarget);
+            e.parentNode.removeChild(header);
+        }, 3000);
+    };
+});
+
+// Add an event listener to the play button
+// playButton.addEventListener('click', removeFadeOut(playButton, 3000));
 
 // playGame();

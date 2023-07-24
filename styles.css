@@ -139,8 +139,8 @@
     background-clip: text;
     font-family: 'neon3';
     animation: bg-animation 5s infinite alternate;
-    font-size: 2rem;
-    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
+    font-size: 5rem;
+    text-shadow: 0 0 0.5em hsl(0 0% 100% / 0.3),
     0 0 0.45em currentColor;
 }
 
