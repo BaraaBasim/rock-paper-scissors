@@ -65,6 +65,7 @@ playButton.addEventListener("click", function(e){
         const header = document.querySelector('.header');
         header.style.transition = "opacity 0.5s ease";
         header.style.opacity = 0;
+        var removeTarget = e.target.parentNode.parentNode;
         setTimeout(function() {
             e.parentNode.removeChild(removeTarget);
             e.parentNode.removeChild(header);
@@ -72,7 +73,5 @@ playButton.addEventListener("click", function(e){
     };
 });
 
-// Add an event listener to the play button
-// playButton.addEventListener('click', removeFadeOut(playButton, 3000));
 
 // playGame();

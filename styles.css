@@ -14,6 +14,89 @@
     font-family: "Tilt Neon";
     src: url('./media/fonts/Tilt\ neon/TiltNeon-Regular-VariableFont_XROT,YROT.ttf');
 }
+
+@property --gradient-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+  
+
+
+.hidden {
+    display: none;
+}
+
+.img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.img button::after {
+    filter: blur(3.5rem);
+  }
+  
+  @keyframes rotation {
+    0% {
+      --gradient-angle: 0deg;
+    }
+    100% {
+      --gradient-angle: 360deg;
+    }
+  }
+  
+
+.img button::before,
+.img button::after {
+  content: "";
+  position: absolute;
+  inset: -0.5rem;
+  z-index: -1;
+  background: conic-gradient(
+    from var(--gradient-angle),
+    var(--clr-3),
+    var(--clr-4),
+    var(--clr-5),
+    var(--clr-4),
+    var(--clr-3)
+  );
+  border-radius: inherit;
+  animation: rotation 20s linear infinite;
+}
+
+.img button {
+    width: 40%;
+    background-color: white;
+    font-size: 1.5rem;
+    font-family: "neon";
+    /* background-image: var(--gradient); */
+    /* background-size: 300%;
+    animation: bg-animation 5s infinite alternate;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; */
+    border-radius: 0.5rem;
+    cursor: pointer;
+
+    background: var(--clr-1);
+    border-radius: 0.5rem;
+  
+    position: relative;
+}
+
+.options {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-left: 2rem;
+    margin-right: 2rem;
+
+}
+
+
 :root{
     --gradient: linear-gradient(45deg,
     #E8FD02,
@@ -21,6 +104,11 @@
     #FD02E8); 
     --bg-color: hsl(323 21% 16%);
     --clr-neon: hsl(317 100% 54%);
+    --clr-1: #052b2f;
+    --clr-2: #073438;
+    --clr-3: #0e4b50;
+    --clr-4: #2d8f85;
+    --clr-5: #637c54;
 }
 
 
@@ -29,7 +117,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    background: var(--bg-color);
+    background: var(--clr-2);
     margin: 0;
 }
 
@@ -146,9 +234,6 @@
 
 .header {
     text-align: center;
-
-
-
 }
 
 .footer {
