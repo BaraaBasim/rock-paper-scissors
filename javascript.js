@@ -59,18 +59,21 @@ const playButton = document.getElementById("play-button");
 
 
 playButton.addEventListener("click", function(e){
-    if (e.target.localName === "button") {
-        e.target.style.transition = "opacity 0.5s ease";
+    
+        e.target.parentNode.classList.add('opacity')
         e.target.style.opacity = 0;
         const header = document.querySelector('.header');
-        header.style.transition = "opacity 0.5s ease";
+        header.classList.add('opacity')
         header.style.opacity = 0;
-        var removeTarget = e.target.parentNode.parentNode;
+        // var removeTarget = e.target.parentNode.parentNode;
+        const playSection = document.getElementById("play-section");
+        
         setTimeout(function() {
-            e.parentNode.removeChild(removeTarget);
-            e.parentNode.removeChild(header);
-        }, 3000);
-    };
+            // e.target.parentNode.removeChild(e);
+            // e.target.parentNode.removeChild(header);
+            playSection.classList.remove('hidden')
+        }, 1000);
+
 });
 
 
