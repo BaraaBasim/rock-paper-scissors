@@ -67,11 +67,12 @@ playButton.addEventListener("click", function(e){
         header.style.opacity = 0;
         // var removeTarget = e.target.parentNode.parentNode;
         const playSection = document.getElementById("play-section");
-        
+        const scores = document.getElementById("scores")
         setTimeout(function() {
             // e.target.parentNode.removeChild(e);
             // e.target.parentNode.removeChild(header);
             playSection.classList.remove('hidden')
+            scores.classList.remove('hidden')
         }, 1000);
 
 });

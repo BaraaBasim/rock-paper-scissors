@@ -21,6 +21,11 @@
     inherits: false;
   }
   
+.scores {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 4em;
+}
 
 .opacity {
     transition: opacity 0.5s ease;
