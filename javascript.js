@@ -39,7 +39,7 @@ buttons.forEach(button => {
     let roundResult = playRound(option, computerSelection)
     if (roundResult === 1){
         playerScore++;
-        document.getElementById("gameScore").innerHTML = "You Won!"
+        document.getElementById("gameScore").innerHTML = "You won!"
         document.getElementById("userScore").innerHTML = playerScore;
 
     } else if (roundResult === 2){
@@ -67,8 +67,8 @@ playButton.addEventListener("click", function(e){
         e.target.parentNode.classList.add('opacity')
         e.target.style.opacity = 0;
         const header = document.querySelector('.header');
-        header.classList.add('opacity')
-        header.style.opacity = 0;
+        // header.classList.add('opacity')
+        // header.style.opacity = 0;
         const playSection = document.getElementById("play-section");
         const scores = document.getElementById("scores")
         setTimeout(function() {
