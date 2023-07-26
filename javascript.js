@@ -1,8 +1,7 @@
 
+function getComputerSelection(){
+    let choices = ['Rock', 'Paper', 'Scissors']
 
-let choices = ['Rock', 'Paper', 'Scissors']
-
-function getComputerSelection(choices){
     // gets the computer selection
     // this is the main branch
     let randomNumber;
@@ -27,34 +26,56 @@ function playRound(playerSelection, computerSelection){
     } else return 2;
 }
 
-function playGame(){
-    // plays a game of 3 rounds
-    // game ends when the score reaches 3
-    let playerScore = 0;
-    let computerScore = 0;
-    let gameScore = 0;
-    
-    
-    while (playerScore < 3 && computerScore < 3){
-        let playerInput = prompt("Choose your weapon!").toLowerCase();
-        let computerSelection = getComputerSelection(choices).toLowerCase()
-        if (playerInput !== 'rock' && playerInput !== 'paper' && playerInput !== 'scissors'){
-            throw new Error("Invalid choice");
-        }
-        gameScore = playRound(playerInput, computerSelection);
-        if (gameScore == 1){
-            playerScore++;
-        } else if (gameScore == 2){
-            computerScore++;
-        }
-        console.log("Player choice: ",playerInput)
-        console.log("Computer choice: ", computerSelection)
-        console.log("Player score: ", playerScore)
-        console.log("Computer score: ", computerScore)
+const playButton = document.getElementById("play-button");
+
+const buttons = document.querySelectorAll('.options button');
+let playerScore = 0;
+let computerScore = 0;
+
+// Add a click event listener to each button
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    let computerSelection = getComputerSelection();
+    const option = button.dataset.option;
+    let roundResult = playRound(option, computerSelection)
+    if (roundResult === 1){
+        playerScore++;
+        document.getElementById("gameScore").innerHTML = "You won!"
+        document.getElementById("userScore").innerHTML = playerScore;
+
+    } else if (roundResult === 2){
+        computerScore++;
+        document.getElementById("gameScore").innerHTML = "You lost!"
+        document.getElementById("computerScore").innerHTML = computerScore;
+    } else {
+        document.getElementById("gameScore").innerHTML = "Tie!"
     }
 
-    return playerScore > computerScore ? 1 : 0
 
-}
 
-playGame();
+
+    console.log(`Computer: ${computerSelection}`)
+    console.log(`Player Selection: ${option}`)
+    console.log(`Round result: ${roundResult}`)
+  });
+});
+
+
+
+
+playButton.addEventListener("click", function(e){
+    
+        e.target.parentNode.classList.add('opacity')
+        e.target.style.opacity = 0;
+        const header = document.querySelector('.header');
+        // header.classList.add('opacity')
+        // header.style.opacity = 0;
+        const playSection = document.getElementById("play-section");
+        const scores = document.getElementById("scores")
+        setTimeout(function() {
+            playSection.classList.remove('hidden')
+            scores.classList.remove('hidden')
+        }, 1000);
+
+});
+

@@ -1,0 +1,324 @@
+@font-face {
+    font-family: "Neon";
+    src: url('./media/fonts/neon/mexcellent\ 3d.otf');
+}
+@font-face {
+    font-family: "Neon2";
+    src: url('./media/fonts/neon/mexcellent\ rg.otf');
+}
+@font-face {
+    font-family: "Neon3";
+    src: url('./media/fonts/neon2/Monoton-Regular.ttf');
+}
+@font-face {
+    font-family: "Tilt Neon";
+    src: url('./media/fonts/Tilt\ neon/TiltNeon-Regular-VariableFont_XROT,YROT.ttf');
+}
+
+@property --gradient-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+
+  
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.scores p {
+    margin: 0;
+    text-align: center;
+}
+#scores {
+    height: 5em;
+    margin-bottom: 3em;
+  }
+.scores {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 4em;
+}
+
+.opacity {
+    transition: opacity 0.5s ease;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    gap: 10px;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.footer p{
+    background-image: var(--gradient);
+    background-size: 300%;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-clip: text;
+    animation: bg-animation 5s infinite alternate;
+}
+
+.options button {
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    border: none;
+  }
+  
+  
+  .options button:active {
+    color: black;
+    transform: translateY(2px);
+  }
+
+
+.fa-github {
+    color: #ddd;
+    font-size: 24px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .fa-github:hover {
+    transform: rotate(360deg) scale(1.2);
+  }
+
+.hidden {
+    display: none;
+}
+.scores div{
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #ddd;
+}
+
+.scores h4{
+    color: #ddd;
+    font-family: "Neon2";
+}
+
+.scores p{
+    font-family: "Neon2";
+    color: #dddddda6;
+}
+
+.img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.img button::after {
+    filter: blur(3.5rem);
+  }
+  
+  @keyframes rotation {
+    0% {
+      --gradient-angle: 0deg;
+    }
+    100% {
+      --gradient-angle: 360deg;
+    }
+  }
+  
+
+.img button::before,
+.img button::after {
+  content: "";
+  position: absolute;
+  inset: -0.3rem;
+  z-index: -1;
+  background: conic-gradient(
+    from var(--gradient-angle),
+    var(--clr-3),
+    var(--clr-4),
+    var(--clr-5),
+    var(--clr-4),
+    var(--clr-3)
+  );
+  border-radius: inherit;
+  animation: rotation 5s linear infinite;
+}
+
+.img button {
+    width: 40%;
+    font-size: 1.5rem;
+    /* background-image: linear-gradient(45deg, var(--clr-4), var(--clr-3), var(--clr-2)); */
+    /* background-size: 300%;
+    animation: bg-animation 5s infinite alternate;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; */
+    cursor: pointer;
+    background: var(--clr-1);
+    border-radius: 0.5rem;
+    position: relative;
+    color: var(--clr-4);
+    border: none;
+}
+
+.options {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-left: 10%;
+    margin-right: 10%;
+
+}
+
+
+:root{
+    --gradient: linear-gradient(45deg,
+    #E8FD02,
+    #02E8FD,
+    #FD02E8); 
+    --bg-color: hsl(323 21% 16%);
+    --clr-neon: hsl(317 100% 54%);
+    --clr-1: #052b2f;
+    --clr-2: #073438;
+    --clr-3: #0e4b50;
+    --clr-4: #2d8f85;
+    --clr-5: #637c54;
+}
+
+
+.body-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: var(--clr-2);
+    margin: 0;
+}
+
+.content-container{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-neon{
+    font-family: "Neon";
+    font-size: 4rem;
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--clr-neon);
+    border: var(--clr-neon) .125em solid;
+    padding: .24em 1em;
+    border-radius: 0.25em;
+    background-color: transparent;
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
+    0 0 0.45em currentColor;
+
+    box-shadow: inset 0 0 0.5em 0 var(--clr-neon),
+    0 0 0.5em 0 var(--clr-neon);
+
+    position: relative;
+
+    
+}
+
+.btn-neon::before{
+    pointer-events: none;
+    content: '';
+    position: absolute;
+    background: var(--clr-neon);
+    top: 120%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: perspective(1em) rotateX(40deg) scale(1, 0.35);
+    filter: blur(1.5em);
+    opacity: 0.7;
+}
+
+.btn-neon::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: var(--clr-neon);
+    z-index: -1;
+
+    opacity: 0;
+    box-shadow: 0 0 2em 0.5em var(--clr-neon);
+    transition: opacity 100ms linear;
+}
+
+.btn-neon:hover::after {
+    opacity: 1;
+}
+.btn-neon:hover::before {
+    opacity: 1;
+}
+.btn-neon:hover{
+    color: var(--bg-color);
+    text-shadow: none;
+}
+
+@keyframes bg-animation {
+    0% {
+        background-position: left;
+    }
+    100% {
+        background-position: right;
+    }
+}
+
+.blink {
+    animation: blinker 1s step-start infinite;
+    text-align: center;
+    
+  }
+  
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
+
+
+.content-title {
+    font-size: 2rem;
+    margin-bottom: 3em;
+    font-family: "Tilt Neon";
+    color: #ddd;
+}
+
+.title {
+    background-image: var(--gradient);
+    background-size: 300%;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-clip: text;
+    font-family: 'neon3';
+    animation: bg-animation 5s infinite alternate;
+    font-size: 5rem;
+    text-shadow: 0 0 0.5em hsl(0 0% 100% / 0.3),
+    0 0 0.45em currentColor;
+}
+
+.header {
+    text-align: center;
+}
+
+.footer {
+    text-align: center;
+    
+    margin-top: auto;
+}

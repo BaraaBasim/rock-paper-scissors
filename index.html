@@ -4,9 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-    <script src="./javascript.js"></script>
+    <script src="./javascript.js" defer></script>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+
 </head>
-<body>
+<body class="body-container">
+    <header class="header">
+        <h2 class="title">Rock Paper Scissors</h2>
+    </header>
+    <section id="scores" class="scores hidden">
+      <div>
+        <h4>YOUR SCORE</h4>
+        <p id="userScore">0</p>
+      </div>
+
+      <div>
+        <h4>GAME SCORE</h4>
+        <p id="gameScore"> </p>
+      </div>
+
+      <div>
+        <h4>COMPUTER SCORE</h4>
+        <p id="computerScore">0</p>
+      </div>
+    </section>
+    <section id="play-section" class="choose hidden">
+        <div class="options">
+          <div data-option="rock" class="img">
+            <img src="./media/images/rock.png">
+            <button data-option="rock">Rock</button>
+          </div>
+          <div data-option="paper" class="img">
+            <img src="./media/images/paper.png">
+            <button data-option="paper">Paper</button>
+          </div>
+          <div data-option="scissors" class="img">
+            <img src="./media/images/scissors.png">
+            <button data-option="scissors">Scissors</button>
+          </div>
+        </div>
+
+    </section>
+    <div class="content-container">
+        <div class="content-title">
+            <!-- <p>ARE YOU BRAVE ENOUGH FOR A GAME OF <br>ROCK PAPER SCISSORS<span class="blink">?</span></p> -->
+        </div>
+        <div class="btn-play-container">
+            <button id="play-button" class="btn-neon">Play</button>
+        </div>
     
+    </div>
+    <footer class="footer">
+      <p>Copyright © 2023 Baraa</p>
+      <a href="https://github.com/BaraaBasim" target="_blank">
+        <i class="fab fa-github" aria-hidden="true"></i></a>
+    </footer>
 </body>
 </html>
