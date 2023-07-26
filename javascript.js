@@ -1,6 +1,4 @@
 
-
-
 function getComputerSelection(){
     let choices = ['Rock', 'Paper', 'Scissors']
 
@@ -27,39 +25,7 @@ function playRound(playerSelection, computerSelection){
     } else return 2;
 }
 
-// function playGame(){
-//     // plays a game of 3 rounds
-//     // game ends when the score reaches 3
-//     let playerScore = 0;
-//     let computerScore = 0;
-//     let gameScore = 0;
-    
-    
-//     while (playerScore < 3 && computerScore < 3){
-//         let playerInput = prompt("Choose your weapon!").toLowerCase();
-//         let computerSelection = getComputerSelection(choices).toLowerCase()
-//         if (playerInput !== 'rock' && playerInput !== 'paper' && playerInput !== 'scissors'){
-//             throw new Error("Invalid choice");
-//         }
-//         gameScore = playRound(playerInput, computerSelection);
-//         if (gameScore == 1){
-//             playerScore++;
-//         } else if (gameScore == 2){
-//             computerScore++;
-//         }
-//         console.log("Player choice: ",playerInput)
-//         console.log("Computer choice: ", computerSelection)
-//         console.log("Player score: ", playerScore)
-//         console.log("Computer score: ", computerScore)
-//     }
-
-//     return playerScore > computerScore ? 1 : 0
-
-// }
 const playButton = document.getElementById("play-button");
-
-// TODO: listen to the click events and play a game
-// Display the score on the score board
 
 const buttons = document.querySelectorAll('.options button');
 let playerScore = 0;
@@ -93,7 +59,6 @@ buttons.forEach(button => {
   });
 });
 
-// choice.addEventListener('click', playRound(,))
 
 
 
@@ -104,17 +69,12 @@ playButton.addEventListener("click", function(e){
         const header = document.querySelector('.header');
         header.classList.add('opacity')
         header.style.opacity = 0;
-        // var removeTarget = e.target.parentNode.parentNode;
         const playSection = document.getElementById("play-section");
         const scores = document.getElementById("scores")
         setTimeout(function() {
-            // e.target.parentNode.removeChild(e);
-            // e.target.parentNode.removeChild(header);
             playSection.classList.remove('hidden')
             scores.classList.remove('hidden')
         }, 1000);
 
 });
 
-
-// playGame();
