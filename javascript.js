@@ -1,8 +1,9 @@
 
 
-let choices = ['Rock', 'Paper', 'Scissors']
 
-function getComputerSelection(choices){
+function getComputerSelection(){
+    let choices = ['Rock', 'Paper', 'Scissors']
+
     // gets the computer selection
     let randomNumber;
     randomNumber = Math.floor(Math.random() * 3);
@@ -26,36 +27,74 @@ function playRound(playerSelection, computerSelection){
     } else return 2;
 }
 
-function playGame(){
-    // plays a game of 3 rounds
-    // game ends when the score reaches 3
-    let playerScore = 0;
-    let computerScore = 0;
-    let gameScore = 0;
+// function playGame(){
+//     // plays a game of 3 rounds
+//     // game ends when the score reaches 3
+//     let playerScore = 0;
+//     let computerScore = 0;
+//     let gameScore = 0;
     
     
-    while (playerScore < 3 && computerScore < 3){
-        let playerInput = prompt("Choose your weapon!").toLowerCase();
-        let computerSelection = getComputerSelection(choices).toLowerCase()
-        if (playerInput !== 'rock' && playerInput !== 'paper' && playerInput !== 'scissors'){
-            throw new Error("Invalid choice");
-        }
-        gameScore = playRound(playerInput, computerSelection);
-        if (gameScore == 1){
-            playerScore++;
-        } else if (gameScore == 2){
-            computerScore++;
-        }
-        console.log("Player choice: ",playerInput)
-        console.log("Computer choice: ", computerSelection)
-        console.log("Player score: ", playerScore)
-        console.log("Computer score: ", computerScore)
+//     while (playerScore < 3 && computerScore < 3){
+//         let playerInput = prompt("Choose your weapon!").toLowerCase();
+//         let computerSelection = getComputerSelection(choices).toLowerCase()
+//         if (playerInput !== 'rock' && playerInput !== 'paper' && playerInput !== 'scissors'){
+//             throw new Error("Invalid choice");
+//         }
+//         gameScore = playRound(playerInput, computerSelection);
+//         if (gameScore == 1){
+//             playerScore++;
+//         } else if (gameScore == 2){
+//             computerScore++;
+//         }
+//         console.log("Player choice: ",playerInput)
+//         console.log("Computer choice: ", computerSelection)
+//         console.log("Player score: ", playerScore)
+//         console.log("Computer score: ", computerScore)
+//     }
+
+//     return playerScore > computerScore ? 1 : 0
+
+// }
+const playButton = document.getElementById("play-button");
+
+// TODO: listen to the click events and play a game
+// Display the score on the score board
+
+const buttons = document.querySelectorAll('.options button');
+let playerScore = 0;
+let computerScore = 0;
+
+// Add a click event listener to each button
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    let computerSelection = getComputerSelection();
+    const option = button.dataset.option;
+    let roundResult = playRound(option, computerSelection)
+    if (roundResult === 1){
+        playerScore++;
+        document.getElementById("gameScore").innerHTML = "You Won!"
+        document.getElementById("userScore").innerHTML = playerScore;
+
+    } else if (roundResult === 2){
+        computerScore++;
+        document.getElementById("gameScore").innerHTML = "You lost!"
+        document.getElementById("computerScore").innerHTML = computerScore;
+    } else {
+        document.getElementById("gameScore").innerHTML = "Tie!"
     }
 
-    return playerScore > computerScore ? 1 : 0
 
-}
-const playButton = document.getElementById("play-button");
+
+
+    console.log(`Computer: ${computerSelection}`)
+    console.log(`Player Selection: ${option}`)
+    console.log(`Round result: ${roundResult}`)
+  });
+});
+
+// choice.addEventListener('click', playRound(,))
+
 
 
 playButton.addEventListener("click", function(e){

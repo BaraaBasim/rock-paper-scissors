@@ -21,6 +21,14 @@
     inherits: false;
   }
   
+.scores p {
+    margin: 0;
+    text-align: center;
+}
+#scores {
+    height: 5em;
+    margin-bottom: 3em;
+  }
 .scores {
     display: flex;
     justify-content: space-around;
